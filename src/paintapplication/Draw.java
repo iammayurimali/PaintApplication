@@ -41,8 +41,15 @@ public class Draw {
     private Icon rect = new ImageIcon("D:\\new\\SwingPaint\\src\\bin\\rect.png");
     private Icon pencilIcon = new ImageIcon("D:\\new\\SwingPaint\\src\\bin\\pencil.png");
     Canvas canvas;
-   
-    
+    private JLabel filenameBar, thicknessStat;
+    private JSlider thicknessSlider;
+    ChangeListener thick = new ChangeListener() {
+		public void stateChanged(ChangeEvent e) {
+			thicknessStat.setText(String.format("%s",
+					thicknessSlider.getValue()));
+			canvas.setThickness(thicknessSlider.getValue());
+		}
+	};
     ActionListener listener = new ActionListener() {
     public void actionPerformed(ActionEvent event) {
 			if (event.getSource() == BLACKbutton) {
@@ -113,7 +120,11 @@ public class Draw {
 		rectangle.setPreferredSize(new Dimension(40, 40));
 		rectangle.addActionListener(listener);
 		
-           
+                thicknessSlider = new JSlider(JSlider.VERTICAL, 0, 10, 1);
+		thicknessSlider.setMajorTickSpacing(25);
+		thicknessSlider.setPaintTicks(true);
+		thicknessSlider.setPreferredSize(new Dimension(40, 40));
+		thicknessSlider.addChangeListener(thick);
 		
 		BLACKbutton = new JButton();
 		BLACKbutton.setBackground(Color.BLACK);
@@ -174,6 +185,15 @@ public class Draw {
 		colorPicker.addActionListener(listener);
 		
 
+		filenameBar = new JLabel("");
+		thicknessStat = new JLabel("1");
+
+		box.add(Box.createVerticalStrut(10));
+		box1.add(thicknessSlider, BorderLayout.NORTH);
+		box1.add(thicknessStat, BorderLayout.NORTH);
+		box.add(box1, BorderLayout.NORTH);
+		panel1.add(filenameBar, BorderLayout.SOUTH);
+		box.add(Box.createVerticalStrut(10));
 		
                 panel.add(lightGraybutton);
                 panel.add(GRAYbutton);
