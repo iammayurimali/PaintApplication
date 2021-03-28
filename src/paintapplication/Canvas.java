@@ -8,6 +8,7 @@ package paintapplication;
 import javax.swing.JComponent;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -20,6 +21,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
+import javax.swing.Box;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.event.MouseInputAdapter;
 
 /**
@@ -33,7 +40,7 @@ public class Canvas extends JComponent {
     private Graphics2D graphics;
     private MouseMotionListener motion;
     private MouseListener listener;
-    	public Canvas(int height, int width) {
+    	public Canvas() {
                 setBackground(Color.WHITE);
 		defaultListener();
 	}
