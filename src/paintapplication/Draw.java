@@ -30,10 +30,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import paintapplication.Canvas;
-/**
- *
- * @author Amruta
- */
+
 public class Draw {
     Canvas canvas;
     private int width, height;
